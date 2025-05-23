@@ -1,8 +1,8 @@
 export default function Home() {
   return (
-    <main className="bg-[#fef6e4] min-h-screen font-sans">
+    <main className="bg-[#db641f4] min-h-screen font-sans">
       {/* Header */}
-      <header className="bg-[#f582ae] text-white px-6 py-4 flex justify-between items-center">
+      <header className="bg-[#db641f] text-white px-6 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Food Delivery</h1>
         <nav className="space-x-4">
           <a href="#" className="hover:underline">Home</a>
@@ -25,12 +25,12 @@ export default function Home() {
           ].map((item) => (
             <div
               key={item.name}
-              className="border border-[#f582ae] p-4 rounded text-center bg-white shadow-sm"
+              className="border border-[#db641f] p-4 rounded text-center bg-white shadow-sm"
             >
               <div className="text-6xl mb-2">{item.image}</div>
               <h3 className="text-lg font-semibold">{item.name}</h3>
               <p className="text-gray-600">{item.price}</p>
-              <button className="mt-3 bg-[#f582ae] text-white px-4 py-1 rounded hover:bg-[#f36a9d]">
+              <button className="mt-3 bg-[#db641f] text-white px-4 py-1 rounded hover:bg-[#f36a9d]">
                 Order
               </button>
             </div>
