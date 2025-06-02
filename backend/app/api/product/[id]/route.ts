@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
+
 const prisma = new PrismaClient();
 
 // GET by ID
@@ -69,7 +70,7 @@ export const PUT = async (
     );
   }
 
-  const { name_value, descripion_value, price_value } = await req.json();
+  const { name, description, price } = await req.json();
 
   const product = await prisma.product.findUnique({ where: { id } });
   if (!product) {
@@ -88,9 +89,9 @@ export const PUT = async (
   await prisma.product.update({
     where: { id },
     data: {
-      name: name_value,
-      description: descripion_value,
-      price: Number(price_value),
+      name: name,
+      description: description,
+      price: Number(price),
     },
   });
 

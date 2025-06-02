@@ -14,10 +14,10 @@ export async function GET() {
 // POST new product
 export async function POST(req: Request) {
   const body = await req.json();
-  const { name, price } = body;
+  const { name, price, description } = body;
 
   const product = await prisma.product.create({
-    data: { name, price },
+    data: { name, price, description },
   });
 
   return NextResponse.json({ message: 'Product created', data: product });

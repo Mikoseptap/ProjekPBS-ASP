@@ -6,6 +6,8 @@ export const prisma = new PrismaClient();
 
 // Buat Response untuk "User tidak ditemukan"
 
+
+
 export const getResponseUserNotFound = NextResponse.json(
   {
     metaData: {
@@ -18,6 +20,11 @@ export const getResponseUserNotFound = NextResponse.json(
     status: 404,
   }
 );
+
+
+//  const product = await prisma.product.create({
+//       product: { name, price },
+//     });
 
 // Buat fungsi bcrypt
 
