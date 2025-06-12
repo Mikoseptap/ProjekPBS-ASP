@@ -16,18 +16,22 @@ export default function Home() {
         <p className="text-gray-700 mb-8">Please select a dish from the menu to order.</p>
 
         {/* Menu Grid */}
-        <div className="grid grid-cols-2 gap-6 text-orange-400">
+        <div className="grid grid-cols-2 gap-6 text-orang">
           {[
-            { name: "Nasi Goreng", price: "$5.99", image: "🍔" },
-            { name: "Pizza", price: "$8.99", image: "🍕" },
-            { name: "Coffee", price: "$2.99", image: "☕" },
-            { name: "Orange Juice", price: "$3.99", image: "🍊" }
+            { name: "Nasi Goreng", price: "$5.99", image: "/images/nasi-goreng (2).jpg" },
+            { name: "Pizza", price: "$8.99", image: "/images/pizza.jpg" },
+            { name: "Coffee", price: "$2.99", image: "/images/coffee.jpg" },
+            { name: "Orange Juice", price: "$3.99", image: "/images/orange-juice.jpg" }
           ].map((item) => (
             <div
               key={item.name}
               className="border border-[#db641f] p-4 rounded text-center bg-white shadow-sm"
             >
-              <div className="text-6xl mb-2">{item.image}</div>
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-24 h-24 object-cover mx-auto mb-2 rounded"
+              />
               <h3 className="text-lg font-semibold">{item.name}</h3>
               <p className="text-gray-600">{item.price}</p>
               <button className="mt-3 bg-[#db641f] text-white px-4 py-1 rounded hover:bg-[#f36a9d]">
