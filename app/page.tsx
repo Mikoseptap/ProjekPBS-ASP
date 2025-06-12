@@ -20,7 +20,7 @@ export default function Home() {
           {[
             { name: "Nasi Goreng", price: "15.000", image: "/images/nasi-goreng (2).jpg" },
             { name: "Mie Ayam Pangsit", price: "13.000", image: "/images/mie-ayam-pangsit.jpg" },
-            { name: "Es Teh", price: "5.000", image: "/images/coffee.jpg" },
+            { name: "Es Teh", price: "5.000", image: "/images/es-teh.jpg" },
             { name: "Orange Juice", price: "$3.99", image: "/images/orange-juice.jpg" }
           ].map((item) => (
             <div
