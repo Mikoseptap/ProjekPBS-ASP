@@ -16,9 +16,9 @@ export default function Home() {
         <p className="text-gray-700 mb-8">Please select a dish from the menu to order.</p>
 
         {/* Menu Grid */}
-        <div className="grid grid-cols-2 gap-6 text-orang">
+        <div className="grid grid-cols-2 gap-6 text-orange-400">
           {[
-            { name: "Nasi Goreng", price: "$5.99", image: "/images/nasi-goreng (2).jpg" },
+            { name: "Nasi Goreng", price: "15.000", image: "/images/nasi-goreng (2).jpg" },
             { name: "Pizza", price: "$8.99", image: "/images/pizza.jpg" },
             { name: "Coffee", price: "$2.99", image: "/images/coffee.jpg" },
             { name: "Orange Juice", price: "$3.99", image: "/images/orange-juice.jpg" }
