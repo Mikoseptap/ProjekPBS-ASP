@@ -13,7 +13,7 @@ export default function Home() {
       {/* Content */}
       <section className="max-w-4xl mx-auto py-12 px-6">
         <h2 className="text-3xl font-bold mb-2">Selamat datang di Waroeng MakJum</h2>
-        <p className="text-gray-700 mb-8">Please select a dish from the menu to order.</p>
+        <p className="text-gray-700 mb-8">Silahkan pilih menu yang ingin anda pesan</p>
 
         {/* Menu Grid */}
         <div className="grid grid-cols-2 gap-6 text-orange-400">
