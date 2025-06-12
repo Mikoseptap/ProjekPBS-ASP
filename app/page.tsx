@@ -5,7 +5,7 @@ export default function Home() {
       <header className="bg-[#db641f] text-white px-6 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Waroeng MakJum</h1>
         <nav className="space-x-4">
-          <a href="#" className="hover:underline">Home</a>
+          <a href="" className="hover:underline">Home</a>
           <a href="#" className="hover:underline">About</a>
         </nav>
       </header>
@@ -19,7 +19,7 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-6 text-orange-400">
           {[
             { name: "Nasi Goreng", price: "15.000", image: "/images/nasi-goreng (2).jpg" },
-            { name: "Pizza", price: "$8.99", image: "/images/pizza.jpg" },
+            { name: "Mie Ayam Pangsit", price: "13.000", image: "/images/mie-ayam-pangsit.jpg" },
             { name: "Coffee", price: "$2.99", image: "/images/coffee.jpg" },
             { name: "Orange Juice", price: "$3.99", image: "/images/orange-juice.jpg" }
           ].map((item) => (
