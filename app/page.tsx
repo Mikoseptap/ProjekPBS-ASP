@@ -21,7 +21,7 @@ export default function Home() {
             { name: "Nasi Goreng", price: "15.000", image: "/images/nasi-goreng (2).jpg" },
             { name: "Mie Ayam Pangsit", price: "13.000", image: "/images/mie-ayam-pangsit.jpg" },
             { name: "Es Teh", price: "5.000", image: "/images/es-teh.jpg" },
-            { name: "Es jeruk peras", price: "7.000", image: "/images/orange-juice.jpg" }
+            { name: "Es jeruk peras", price: "7.000", image: "/images/es-jeruk-peras.jpg" }
           ].map((item) => (
             <div
               key={item.name}
