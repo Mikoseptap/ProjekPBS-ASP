@@ -2,13 +2,14 @@ export default function Home() {
   return (
     <main className="bg-[#db641f4] min-h-screen font-sans">
       {/* Header */}
-      <header className="bg-[#db641f] text-white px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">Food Delivery</h1>
-        <nav className="space-x-4">
-          <a href="#" className="hover:underline">Home</a>
-          <a href="#" className="hover:underline">About</a>
-        </nav>
-      </header>
+      <nav className="bg-orange-600 text-white px-6 py-4 flex justify-between items-center">
+        <div className="font-bold text-lg">Food Delivery</div>
+        <div className="space-x-6">
+        <a href="/app" className="hover:underline">Home</a>
+        <a href="/about" className="hover:underline">About</a>
+        <a href="/location" className="hover:underline">Location</a> {/* ← Tambahan */}
+        </div>
+      </nav>
 
       {/* Content */}
       <section className="max-w-4xl mx-auto py-12 px-6">
