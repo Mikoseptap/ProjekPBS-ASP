@@ -1,6 +1,6 @@
-"use client";
+"use client"; // Wajib karena kita pakai useState dan useEffect
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type MenuItem = {
   id: number;
@@ -20,33 +20,59 @@ export default function MenuPage() {
   });
   const [editingId, setEditingId] = useState<number | null>(null);
 
-  const [editingId, setEditingId] = useState<number | null>(null);
+  // 🚀 Fetch menu dari API saat halaman pertama kali dimuat
+  useEffect(() => {
+    fetchMenu();
+  }, []);
 
-  const tambahAtauEditMenu = () => {
+  const fetchMenu = async () => {
+    const res = await fetch("/api/menu");
+    const data = await res.json();
+    setMenu(data);
+  };
+
+  // ➕ Tambah atau Edit menu
+  const tambahAtauEditMenu = async () => {
     if (editingId !== null) {
-      // Edit
-      setMenu(
-        menu.map((item) =>
-          item.id === editingId ? { ...item, ...form } : item
-        )
-      );
+      // 🔁 Edit menu (PUT)
+      await fetch("/api/menu", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: editingId, ...form }),
+      });
       setEditingId(null);
     } else {
-      // Tambah
-      const newItem = { ...form, id: Date.now() };
-      setMenu([...menu, newItem]);
+      // ➕ Tambah menu (POST)
+      await fetch("/api/menu", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
     }
+
     setForm({ nama: "", kategori: "Makanan", harga: 0, stok: 0 });
+    fetchMenu(); // 🔄 Refresh data
   };
 
   const editMenu = (item: MenuItem) => {
-    setForm({ nama: item.nama, kategori: item.kategori, harga: item.harga, stok: item.stok });
+    setForm({
+      nama: item.nama,
+      kategori: item.kategori,
+      harga: item.harga,
+      stok: item.stok,
+    });
     setEditingId(item.id);
   };
 
-  const hapusMenu = (id: number) => {
-    setMenu(menu.filter((item) => item.id !== id));
-    if (editingId === id) setEditingId(null);
+  // ❌ Hapus menu (DELETE)
+  const hapusMenu = async (id: number) => {
+    await fetch("/api/menu", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+
+    fetchMenu(); // 🔄 Refresh setelah hapus
   };
 
   return (
