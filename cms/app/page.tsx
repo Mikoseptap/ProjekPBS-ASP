@@ -11,17 +11,14 @@ type MenuItem = {
 };
 
 export default function MenuPage() {
-  const [menu, setMenu] = useState<MenuItem[]>([
-    { id: 1, nama: "Nasi Goreng", kategori: "Makanan", harga: 15000, stok: 10 },
-    { id: 2, nama: "Es Teh", kategori: "Minuman", harga: 5000, stok: 20 },
-  ]);
-
+  const [menu, setMenu] = useState<MenuItem[]>([]);
   const [form, setForm] = useState<Omit<MenuItem, "id">>({
     nama: "",
     kategori: "Makanan",
     harga: 0,
     stok: 0,
   });
+  const [editingId, setEditingId] = useState<number | null>(null);
 
   const [editingId, setEditingId] = useState<number | null>(null);
 
