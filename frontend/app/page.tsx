@@ -7,6 +7,7 @@ export default function Home() {
         <nav className="space-x-4">
           <a href="" className="hover:underline">Home</a>
           <a href="#" className="hover:underline">About</a>
+          <a href="/location" className="hover:underline">Location</a>
         </nav>
       </header>
 
