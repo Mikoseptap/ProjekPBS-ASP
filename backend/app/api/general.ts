@@ -21,17 +21,15 @@ export const getResponseUserNotFound = NextResponse.json(
   }
 );
 
-
-//  const product = await prisma.product.create({
-//       product: { name, price },
-//     });
-
-// Buat fungsi bcrypt
-
-// export const setBcrypt = (real_password: string) => {
-//   // Buat bcrypt password
-//   const salt_password = genSaltSync(10);
-//   const hash_password = hashSync(real_password, salt_password);
-
-//   return hash_password;
-// };
+export const getResponseUserAlreadyExists = NextResponse.json(
+  {
+    metaData: {
+      error: 1,
+      message: process.env.USER_ALREADY_EXISTS_MESSAGE,
+      status: 409,
+    },
+  },
+  {
+    status: 409,
+  }
+);
