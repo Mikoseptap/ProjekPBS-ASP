@@ -1,4 +1,17 @@
+'use client';
+
+import { useEffect, useState } from "react";
+
 export default function Home() {
+  const [about, setAbout] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/about") // Ganti dengan URL backend Anda
+      .then((res) => res.json())
+      .then((data) => setAbout(data.description))
+      .catch(() => setAbout("Gagal mengambil data"));
+  }, []);
+
   return (
     <main className="bg-[#db641f4] min-h-screen font-sans">
       {/* Header */}
@@ -15,7 +28,9 @@ export default function Home() {
       <section className="max-w-4xl mx-auto py-12 px-6">
         <h2 className="text-3xl font-bold mb-2">Selamat datang di Waroeng MakJum</h2>
         <p className="text-gray-700 mb-8">Silahkan pilih menu yang ingin anda pesan</p>
-
+        <div className="mb-8 text-orange-700 font-semibold">
+          {about ? about : "Memuat..."}
+        </div>
         {/* Menu Grid */}
         <div className="grid grid-cols-2 gap-6 text-orange-400">
           {[
