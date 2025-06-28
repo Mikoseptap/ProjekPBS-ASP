@@ -1,24 +1,75 @@
-// app/api/product/route.ts
-
-import { PrismaClient } from '@prisma/client';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-// GET all products
-export async function GET() {
+// GET (ambil semua produk)
+export const GET = async () => {
   const products = await prisma.product.findMany();
-  return NextResponse.json({ data: products });
-}
 
-// POST new product
-export async function POST(req: Request) {
-  const body = await req.json();
-  const { name, price, description } = body;
+  return NextResponse.json({
+    metaData: {
+      error: 0,
+      message: "Berhasil mengambil data produk!",
+      status: 200,
+    },
+    data: products,
+  });
+};
 
-  const product = await prisma.product.create({
-    data: { name, price, description },
+// POST (tambah produk baru)
+export const POST = async (req: NextRequest) => {
+  const { name, description, price } = await req.json();
+
+  // Cek apakah produk dengan nama yang sama sudah ada
+  const existingProduct = await prisma.product.findFirst({
+    where: { name },
   });
 
-  return NextResponse.json({ message: 'Product created', data: product });
-}
+  if (existingProduct) {
+    return NextResponse.json(
+      {
+        metaData: {
+          error: 1,
+          message: "Produk sudah ada!!",
+          status: 409,
+        },
+      },
+      { status: 409 }
+    );
+  }
+
+  // Tambah produk baru
+  const newProduct = await prisma.product.create({
+    data: {
+      name,
+      description,
+      price: Number(price),
+    },
+  });
+
+  return NextResponse.json(
+    {
+      metaData: {
+        error: 0,
+        message: "Produk berhasil ditambahkan!",
+        status: 201,
+      },
+      data: newProduct,
+    },
+    { status: 201 }
+  );
+};
+
+export const OPTIONS = async () => {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
+};
+
+

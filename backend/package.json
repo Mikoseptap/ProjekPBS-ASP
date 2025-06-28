@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@clerk/nextjs": "^6.19.3",
+=======
+    "@clerk/nextjs": "^6.23.0",
+>>>>>>> 0846c5775b1179c12f9e24c107741c5e041c6427
     "@prisma/client": "^6.9.0",
     "@radix-ui/react-dialog": "^1.1.13",
     "@radix-ui/react-slot": "^1.2.2",
