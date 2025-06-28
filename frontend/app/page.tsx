@@ -19,10 +19,10 @@ export default function Home() {
         {/* Menu Grid */}
         <div className="grid grid-cols-2 gap-6">
           {[
-            { name: "Hamburger", price: "$5.99", image: "🍔" },
-            { name: "Pizza", price: "$8.99", image: "🍕" },
-            { name: "Coffee", price: "$2.99", image: "☕" },
-            { name: "Orange Juice", price: "$3.99", image: "🍊" }
+            { name: "Hamburger", price: "Rp. 35.000", image: "🍔" },
+            { name: "Pizza", price: "Rp. 55.000", image: "🍕" },
+            { name: "Coffee", price: "Rp. 25.000", image: "☕" },
+            { name: "Orange Juice", price: "Rp. 20.000", image: "🍊" }
           ].map((item) => (
             <div
               key={item.name}
